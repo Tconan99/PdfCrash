@@ -13,7 +13,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.button).setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            Intent intent = new Intent(MainActivity.this,
+                    X5WebViewActivity.class);
             startActivity(intent);
         });
     }
