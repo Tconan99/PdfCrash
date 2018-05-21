@@ -3,7 +3,9 @@ package com.conan.android.pdfappilcation;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 
+import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
@@ -31,6 +33,9 @@ public class X5WebViewActivity extends AppCompatActivity {
         webView.getSettings().setAllowFileAccess(true);
         webView.getSettings().setAppCacheEnabled(true);
 
+        // 设置chromeClient
+        webView.setWebChromeClient(new WebChromeClient());
+
         // 支持地址拦截
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -41,5 +46,19 @@ public class X5WebViewActivity extends AppCompatActivity {
         });
 
         webView.loadUrl(path);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (webView.canGoBack()) {
+                webView.goBack();
+                return true;
+            } else {
+                moveTaskToBack(false);
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
