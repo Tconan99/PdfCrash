@@ -1,9 +1,8 @@
 package com.conan.android.pdfappilcation;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,17 +12,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.button).setOnClickListener(v -> {
-            X5WebViewActivity.path = "http://192.168.1.177:5050/";
+            WebViewActivity.path = "http://172.16.3.7:8182/wx/";
+            Intent intent = new Intent(MainActivity.this,
+                    WebViewActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.button2).setOnClickListener(v -> {
+            X5WebViewActivity.path = "http://172.16.3.7:8182/wx/";
             Intent intent = new Intent(MainActivity.this,
                     X5WebViewActivity.class);
             startActivity(intent);
         });
 
-        findViewById(R.id.button2).setOnClickListener(v -> {
-            X5WebViewActivity.path = "http://192.168.1.177:7080/";
-            Intent intent = new Intent(MainActivity.this,
-                    X5WebViewActivity.class);
-            startActivity(intent);
-        });
+
+//        WebViewActivity.path = "http://172.16.3.7:8182/wx/";
+//        Intent intent = new Intent(MainActivity.this,
+//                WebViewActivity.class);
+//        startActivity(intent);
     }
 }

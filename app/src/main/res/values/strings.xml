@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">PdfAppilcation</string>
-    <string name="jump1">跳转1</string>
-    <string name="jump2">跳转2</string>
+    <string name="jump1">非X5内核</string>
+    <string name="jump2">X5内核</string>
 </resources>

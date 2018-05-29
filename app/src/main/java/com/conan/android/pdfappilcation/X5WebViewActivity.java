@@ -55,7 +55,7 @@ public class X5WebViewActivity extends AppCompatActivity {
                 webView.goBack();
                 return true;
             } else {
-                moveTaskToBack(false);
+                finish();
                 return true;
             }
         }
