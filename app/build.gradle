@@ -1,9 +1,22 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        //加载资源
+        Properties properties = new Properties()
+        InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
+        properties.load(inputStream)
+
+        debug {
+            storeFile file('../key/android.jks')
+            storePassword properties.getProperty('keyPassword')
+            keyAlias 'conan'
+            keyPassword properties.getProperty('storePassword')
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.conan.android.pdfappilcation"
+        applicationId "com.conan.android.pdfappilcation.aaa"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 4
